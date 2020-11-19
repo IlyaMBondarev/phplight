@@ -1,0 +1,9 @@
+1049:Unknown database 'replies'
+1049:Unknown database 'replies'
+1049:Unknown database 'replies'
+1049:Unknown database 'replies'
+ in (select * from replies where id_img = 19;)
+1049:Unknown database 'replies'
+1049:Unknown database 'replies'
+0:
+0:
