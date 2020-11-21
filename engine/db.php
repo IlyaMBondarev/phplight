@@ -5,9 +5,9 @@ $dbConfig = require(DOCROOT . './config/database.php');
 ob_start();
 
 $connection = mysqli_connect(
-	$dbConfig['host'], 
+	$dbConfig['host'],
 	$dbConfig['username'],
-	$dbConfig['password'], 
+	$dbConfig['password'],
 	$dbConfig['db']
 );
 
@@ -29,7 +29,7 @@ if(!function_exists('dbGetAll')) {
 
 	function dbGetAll(string $sql): array {
 
-		$connection = $GLOBALS['connection'];
+        $connection = $GLOBALS['connection'];
 
 		$res = mysqli_query($connection, $sql);
 
@@ -53,7 +53,7 @@ if(!function_exists('dbGetRow')) {
 
 	function dbGetRow(string $sql): array {
 
-		$connection = $GLOBALS['connection'];
+        $connection = $GLOBALS['connection'];
 
 		$res = mysqli_query($connection, $sql);
 
@@ -83,6 +83,17 @@ if(!function_exists('dbUpdateRow')) {
         }
 
         return [];
+    }
+
+}
+
+if(!function_exists('dbEscape')) {
+
+    function dbEscape($val) {
+
+        $connection = $GLOBALS['connection'];
+
+        return mysqli_real_escape_string($connection, (string)htmlspecialchars(strip_tags($val)));
     }
 
 }

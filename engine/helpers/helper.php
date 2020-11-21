@@ -23,9 +23,9 @@ if(!function_exists('view')){
 		ob_start();
 
 		// Импортирует переменные из массива в текущую таблицу символов
-		extract($data); 
+		extract($data);
 
-		require TPL_PATH . $path . '.php';
+        require TPL_PATH . $path . '.php';
 
 		// Возвращает содержимое буфера вывода
 		$result = ob_get_contents();
@@ -69,12 +69,23 @@ if(!function_exists('abort')) {
 	}
 }
 
-function views_sort($x, $y) {
-    if ($x['views'] < $y['views']) {
-        return true;
-    } else if ($x['views'] > $y['views']) {
-        return false;
-    } else {
-        return 0;
+if(!function_exists('views_sort')) {
+    function views_sort($x, $y)
+    {
+        if ($x['views'] < $y['views']) {
+            return true;
+        } else if ($x['views'] > $y['views']) {
+            return false;
+        } else {
+            return 0;
+        }
     }
+}
+
+if(!function_exists('array_get')){
+
+    function array_get(array $array, string $key, $default = null){
+        return isset($array[$key]) ? $array[$key] : $default;
+    }
+
 }

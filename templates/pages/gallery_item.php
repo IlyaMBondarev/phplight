@@ -11,3 +11,16 @@
     </div>
     <?php endforeach; ?>
 </div>
+<form action="/gallery/?id=<?= $item['id'] ?>&action=addComment" method="post" style="padding: 30px;display: flex;flex-direction: column;text-align: center;max-width: 70%;margin: 0 auto;">
+    <label style="margin-top: 15px;">Ваше имя:</label>
+    <input type="text" name="name" value="" style="margin-top: 15px;">
+    <?php if(isset($errors['name'])): ?>
+        <p style="color: red;"><?= $errors['name'] ?></p>
+    <?php endif ?>
+    <label style="margin-top: 15px;">Ваш комментарий:</label>
+    <textarea name="content" style="margin-top: 15px;min-height: 150px;"></textarea>
+    <?php if(isset($errors['content'])): ?>
+        <p style="color: red;"><?= $errors['content'] ?></p>
+    <?php endif ?>
+    <button type="submit" style="margin: 15px auto 0; width: 150px;">Отправить</button>
+</form>
