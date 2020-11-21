@@ -2,8 +2,6 @@
 
 require DOCROOT . '/engine/db.php';
 
-
-
 if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
     $item = dbGetRow('select * from sources where id = '. (int)$_GET['id']  .';');

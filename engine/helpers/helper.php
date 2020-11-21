@@ -89,3 +89,44 @@ if(!function_exists('array_get')){
     }
 
 }
+
+if(!function_exists('escape')) {
+
+    function escape($val) {
+
+        return (string)htmlspecialchars(strip_tags($val));
+    }
+
+}
+if(!function_exists('plus')) {
+
+    function plus($a, $b) {
+
+        return $a+$b;
+    }
+
+}
+if(!function_exists('minus')) {
+
+    function minus($a, $b) {
+
+        return $a-$b;
+    }
+
+}
+if(!function_exists('multiply')) {
+
+    function multiply($a, $b) {
+
+        return $a*$b;
+    }
+
+}
+if(!function_exists('devide')) {
+
+    function devide($a, $b) {
+
+        return $b == 0 ? 'бесконечность' : $a/$b;
+    }
+
+}
